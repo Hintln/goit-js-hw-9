@@ -1,3 +1,5 @@
+const startBtm = document.querySelector('[data-start]');
+const stopBtm = document.querySelector('[data-stop]');
 
 
 
