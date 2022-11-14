@@ -31,27 +31,28 @@ const options = {
             startBtn.disabled = false
         };
       
-      const startTimer = () => {
-      const selectedDate = selectedDates[0];
-      const now = new Date();
-      const diff = selectedDate.getTime() - now.getTime();
+        const startTimer = () => {
+            const selectedDate = selectedDates[0];
+            const now = new Date();
+            const diff = selectedDate.getTime() - now.getTime();
 
-        startBtn.disabled = false;
-          const { days, hours, minutes, seconds } = convertMs(diff);
-          daysRef.textContent = addLeadingZero(days);
-          hoursRef.textContent = addLeadingZero(hours);
-          minutesRef.textContent = addLeadingZero(minutes);
-          secondsRef.textContent = addLeadingZero(seconds);
+            startBtn.disabled = false;
+            const { days, hours, minutes, seconds } = convertMs(diff);
+            daysRef.textContent = addLeadingZero(days);
+            hoursRef.textContent = addLeadingZero(hours);
+            minutesRef.textContent = addLeadingZero(minutes);
+            secondsRef.textContent = addLeadingZero(seconds);
 
             if (
                 daysRef.textContent === '00' &&
                 hoursRef.textContent === '00' &&
                 minutesRef.textContent === '00' &&
                 secondsRef.textContent === '00'
-              ) {
+            ) {
                 clearInterval(timerId)
-              }
-        }
+            }
+        };
+        
 
         const onClick = () => {
             if (timerId) {
