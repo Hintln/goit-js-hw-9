@@ -5,7 +5,7 @@ import { Report } from 'notiflix/build/notiflix-report-aio';
 const startBtn = document.querySelector('[data-start]');
 const daysRef = document.querySelector('[data-days]');
 const hoursRef = document.querySelector('[data-hours]');
-const minutesRef = document.querySelector('[data-munites]');
+const minutesRef = document.querySelector('[data-minutes]');
 const secondsRef = document.querySelector('[data-seconds]');
 let timerId = null;
 
