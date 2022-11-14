@@ -16,20 +16,18 @@ const options = {
     defaultDate: new Date(),
     minuteIncrement: 1,
     onClose(selectedDates) {
-      if (selectedDates.length === 0) {
-        return
-      };
-
-      if (selectedDates[0] <= new Date()) {
-        Report.failure(
-            'Incorect date',
-            'Please choose a date in the future',
-            'Okay',
-            );
-        this.setDate(new Date());
-        } else {
-            startBtn.disabled = false
+        if (selectedDates.length === 0) {
+            return;
         };
+
+        if (selectedDates[0] <= new Date()) {
+            Report.failure(
+                'Incorect date',
+                '"Please choose a date in the future',
+                'Okay',
+            );
+            this.setDate(new Date());
+        } else { startBtn.disabled = false; };
       
         const startTimer = () => {
             const selectedDate = selectedDates[0];
@@ -49,39 +47,37 @@ const options = {
                 minutesRef.textContent === '00' &&
                 secondsRef.textContent === '00'
             ) {
-                clearInterval(timerId)
+                clearInterval(timerId);
             }
-        };
-        
+        }
 
         const onClick = () => {
             if (timerId) {
                 clearInterval(timerId);
-              }
-              timerId = setInterval(startTimer, 1000);
-          }
-          startBtn.addEventListener('click', onClick)
-        }
-    };
-
+            }
+            timerId = setInterval(startTimer, 1000);
+        };
+        startBtn.addEventListener('click', onClick);
+    },
+};
+  
 flatpickr("#datetime-picker", options);
 
-
-function convertMs(ms) {
-  // Number of milliseconds per unit of time
-  const second = 1000;
-  const minute = second * 60;
-  const hour = minute * 60;
-  const day = hour * 24;
-
-  // Remaining days
-  const days = Math.floor(ms / day);
-  // Remaining hours
-  const hours = Math.floor((ms % day) / hour);
-  // Remaining minutes
-  const minutes = Math.floor(((ms % day) % hour) / minute);
-  // Remaining seconds
-  const seconds = Math.floor((((ms % day) % hour) % minute) / second);
-
-  return { days, hours, minutes, seconds };
-}
+  function convertMs(ms) {
+    // Number of milliseconds per unit of time
+    const second = 1000;
+    const minute = second * 60;
+    const hour = minute * 60;
+    const day = hour * 24;
+  
+    // Remaining days
+    const days = Math.floor(ms / day);
+    // Remaining hours
+    const hours = Math.floor((ms % day) / hour);
+    // Remaining minutes
+    const minutes = Math.floor(((ms % day) % hour) / minute);
+    // Remaining seconds
+    const seconds = Math.floor((((ms % day) % hour) % minute) / second);
+  
+    return { days, hours, minutes, seconds };
+  }
