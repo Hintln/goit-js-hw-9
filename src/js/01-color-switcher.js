@@ -1,23 +1,23 @@
-const startBtm = document.querySelector('[data-start]');
-const stopBtm = document.querySelector('[data-stop]');
+const startBtn = document.querySelector('[data-start]');
+const stopBtn = document.querySelector('[data-stop]');
 let timerId = null;
 
+//  stopBtn.disabled = true;
+// startBtn.disabled = false;
 
-
-
-startBtm.addEventListener('click', () => {
+startBtn.addEventListener('click', () => {
     timerId = setInterval(() => {
         const color = getRandomHexColor();
         document.body.style.backgroundColor = color;
     }, 1000);
-    startBtm.disabled = true;
-    stopBtm.disabled = false;
+    startBtn.disabled = true;
+    stopBtn.disabled = false;
 });
 
-stopBtm.addEventListener('click', () => {
+stopBtn.addEventListener('click', () => {
     clearInterval(timerId);
-    startBtm.disabled = false;
-    stopBtm.disabled = true;
+    startBtn.disabled = false;
+    stopBtn.disabled = true;
 });
 
 
