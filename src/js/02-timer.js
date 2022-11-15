@@ -13,6 +13,8 @@ const secondsContent = document.querySelector('span[data-seconds]');
 let intervalId = null;
 let targetData = null;
 let leftTime = 0;
+startTimerBtn.disabled = true;
+
 
 const options = {
   enableTime: true,
